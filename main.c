@@ -1,19 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 #include <string.h>
-/**
- *
- */
-int main()
+#include <stdlib.h>
+int main(void)
 {
-	size_t bufsize = 200, user_input;
-	char *tokens, *buffer = malloc(sizeof(char) * bufsize);
+	char *ptr = NULL, *token, **tokens = malloc(sizeof(char));
+	size_t n = 0;
+	int i = 0;
 
-	while(1)
+	while (1)
 	{
-		printf("$ ");
-		user_input = getline(&buffer, &bufsize, stdin);
-	}
-	return(0);
+		write(1, "$ ", 2);
+		getline(&ptr, &n, stdin);
 
+		token = strtok(ptr, " \n");
+		while(token)
+		{
+			tokens[i] = token;
+			token = strtok(NULL, " \n");
+			i++;
+		}
+		execve(tokens[0], &*tokens, NULL);
+	}
+	return (0);
 }
