@@ -4,20 +4,20 @@
  * @tokens: our command line already tokenized.
  * Return: upon failure it will return , otherwise 1.
  */
-int execution(char **tokens)
+int execution(char **tokens, char **env)
 {
 	int status, i = 0;
 	pid_t child_pid = fork();
 
 	if (child_pid == -1)
-		printf("there is an error, nobody gotta know babygirl <3");
+		perror("Child process failed");
 	else if (child_pid == 0)
 	{
-		if (execve(tokens[0], tokens, NULL) == -1)
+		if (execve(tokens[0], tokens, env) == -1)
 		{
 			perror("Execve");
+			exit(EXIT_FAILURE);
 		}
-		exit(EXIT_FAILURE);
 	}
 	else
 	{
