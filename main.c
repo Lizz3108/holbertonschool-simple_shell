@@ -4,7 +4,6 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 	char *ptr = NULL, **tokens = NULL;
 	size_t n = 0;
 	int flag;
-	unsigned int i = 0;
 
 	while (1)
 	{
@@ -12,8 +11,7 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 			write(1, "$ ", 2);
 		flag = getline(&ptr, &n, stdin);
 
-		/* Controls the exit with Ctrl-d */
-		if (flag == EOF)
+		if (flag == EOF) /* Controls the exit with Ctrl-d */
 		{
 			write(1, "\n", 1);
 			exit(EXIT_SUCCESS);
@@ -29,28 +27,11 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 
 		tokens = tokenization(ptr, " \n");
 
-		if (_strcmp(tokens[0], "exit") == 0)
-		{
-			free(ptr);
-			ptr = NULL;
-			exit(0);
-		}
-
-		if (_strcmp(tokens[0], "env") == 0)
-		{
-			for (i = 0; env[i]; i++)
-			{
-				write(1, env[i], _strlen(env[i]));
-				write(1, "\n", 1);
-			}
-			free(ptr);
-			ptr = NULL;
-			continue;
-		}
-		execution(tokens, env);
-
+		comp_exec(tokens, env);
 		free(ptr);
 		ptr = NULL;
 	}
+	free(ptr);
+	ptr = NULL;
 	return (0);
 }
