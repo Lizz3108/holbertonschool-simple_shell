@@ -29,6 +29,12 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 			break;
 		}
 
+		if (strcmp(ptr, "0x05\n") == 0)
+		{
+			free(ptr);
+			break;
+		}
+
 		tokens = tokenization(ptr, " \n");
 
 		status = execution(tokens);
