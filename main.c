@@ -4,38 +4,38 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 	char *ptr = NULL, **tokens;
 	size_t n = 0;
 	int status = 1;
-	unsigned int i = 0;
+	unsigned int i;
 
 	while (status)
 	{
 		write(1, "$ ", 2);
 		getline(&ptr, &n, stdin);
 
-		if (_strcmp(ptr, "exit\n") == 0)
+		tokens = tokenization(ptr, " \n");
+
+		if (_strcmp(tokens[0], "exit") == 0)
 		{
 			free(ptr);
 			break;
 		}
+
 		
-		if (_strcmp(ptr, "env\n") == 0)
+		if (_strcmp(tokens[0], "env") == 0)
 		{
-			while (env[i])
+			for (i = 0; env[i]; i++)
 			{
 				write(1, env[i], _strlen(env[i]));
 				write(1, "\n", 1);
-				i++;
 			}
 			free(ptr);
 			break;
 		}
 
-		if (strcmp(ptr, "0x05\n") == 0)
+		if (strcmp(ptr, "0x03\n") == 0)
 		{
 			free(ptr);
 			break;
 		}
-
-		tokens = tokenization(ptr, " \n");
 
 		status = execution(tokens);
 	}
