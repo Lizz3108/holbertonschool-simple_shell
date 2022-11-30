@@ -7,8 +7,8 @@
 #include <stdlib.h> /* Exit */
 #include <sys/wait.h> /* Wait */
 
-int execution(char **token, char **env);
 char **tokenization(char *str, char *delim);
+int comp_exec(char **tokens, char **env);
 
 /* Auxiliar Functions*/
 int _strlen(char *s);
