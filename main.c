@@ -6,10 +6,10 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 	int flag;
 	unsigned int i = 0;
 
-	if (isatty(0))
-		write(1, "$ ", 2);
 	while (1)
 	{
+		if (isatty(0))
+			write(1, "$ ", 2);
 		flag = getline(&ptr, &n, stdin);
 
 		/* Controls the exit with Ctrl-d */
