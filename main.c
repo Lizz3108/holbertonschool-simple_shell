@@ -38,11 +38,10 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 
 		if (_strcmp(tokens[0], "env") == 0)
 		{
-			while (env[i])
+			for (i = 0; env[i]; i++)
 			{
 				write(1, env[i], _strlen(env[i]));
 				write(1, "\n", 1);
-				i++;
 			}
 			free(ptr);
 			ptr = NULL;
