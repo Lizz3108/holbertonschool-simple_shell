@@ -28,7 +28,6 @@ int main(int ac __attribute((unused)), char ** av __attribute((unused)),  char *
 		tokens = tokenization(ptr, " \n");
 
 		comp_exec(tokens, env);
-
 		free(ptr);
 		ptr = NULL;
 	}
