@@ -1,26 +1,20 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
+#include "simple_shell.h"
 int main(void)
 {
-	char *ptr = NULL, *token, **tokens = malloc(sizeof(char));
+	char *ptr = NULL, **tokens;
 	size_t n = 0;
-	int i = 0;
+	int status = 1;
 
-	while (1)
+	while (status)
 	{
 		write(1, "$ ", 2);
 		getline(&ptr, &n, stdin);
 
-		token = strtok(ptr, " \n");
-		while(token)
-		{
-			tokens[i] = token;
-			token = strtok(NULL, " \n");
-			i++;
-		}
-		execve(tokens[0], &*tokens, NULL);
+		tokens = tokenization(ptr, " \n");
+
+		status = execution(tokens);
+
+		free(ptr);
 	}
 	return (0);
 }
