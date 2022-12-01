@@ -35,6 +35,7 @@ int main(int ac, char **av,  char **env)
 
 		if (flag == EOF)
 		{
+			free(ptr);
 			write(1, "\n", 1);
 			exit(EXIT_SUCCESS);
 		}
@@ -47,7 +48,7 @@ int main(int ac, char **av,  char **env)
 		}
 
 		tokens = tokenization(ptr, " \n");
-		comp_exec(tokens, env);
+		comp_exec(tokens, ptr, env);
 		free(ptr);
 		ptr = NULL;
 	}

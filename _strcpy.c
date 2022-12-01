@@ -3,8 +3,10 @@
  * _strcpy - Copies the string pointed to by src
  * including the terminating null byte(\0), to the buffer
  * pointer to by dest.
+ *
  * @dest: destination
  * @src: source
+ *
  * Return: Return the value of the pointer dest
  */
 char *_strcpy(char *dest, char *src)
