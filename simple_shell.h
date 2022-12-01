@@ -14,5 +14,6 @@ int comp_exec(char **tokens, char *ptr, char **env);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *coparing, char *compare);
+void free_array(char **tokens);
 
 #endif
