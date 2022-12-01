@@ -1,22 +1,35 @@
 #include "simple_shell.h"
+/**
+ * tokenization - extract tokens from the getline command
+ *
+ * @ptr: String of the command line
+ * @delim: Delimiter
+ *
+ * Return: the array of tokens
+ *
+ * Description: We first allocate space for the array of tokens. We extract
+ * our fits token and save it in token. We start a loop that will run while
+ * token have something. Inside we allocate space for the posision inside
+ * the index. Then we copy the string from token into the index. We clean
+ * out token variable and start the process again. After our while our last
+ * index is assign as NULL, to mark the end of the array.
+ */
 char **tokenization(char *ptr, char *delim)
 {
-	/* Allocating space for the array */
 	char *token = NULL, **tokens = NULL;
 	int i = 0;
 
-	tokens = malloc(sizeof(char *) * _strlen(ptr) + 1);
+	tokens = malloc(sizeof(char *) * _strlen(ptr));
+
 	token = strtok(ptr, delim);
-	while(token)
+	while (token)
 	{
-		/* Allocating space for designated position inside array */
-		tokens[i] = malloc(sizeof(char) * _strlen(token));
-		_strcpy(tokens[i], token);/* Copy the string in token to the array of tokens */
+		tokens[i] = malloc(sizeof(char) * _strlen(token) + 1);
+		_strcpy(tokens[i], token);
 		i++;
-		token = NULL; /* Clean the token, before using it again */
+		token = NULL;
 		token = strtok(NULL, delim);
 	}
-	/* Last position in the array equal to NULL */
 	tokens[i] = NULL;
 	return (tokens);
 }

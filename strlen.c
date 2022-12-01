@@ -1,8 +1,10 @@
 #include "simple_shell.h"
 /**
  * _strlen - Return the lenght of a string
+ *
  * @s: charater pointer
- * Return: its gonna return the lenght of the string
+ *
+ * Return: the lenght of the string
  */
 int _strlen(char *s)
 {
