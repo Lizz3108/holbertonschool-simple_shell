@@ -21,7 +21,7 @@ int main(int ac, char **av,  char **env)
 {
 	char *ptr = NULL, **tokens = NULL;
 	size_t n = 0;
-	int flag, i = 0;
+	int flag;
 
 	(void) ac;
 	(void) av;
@@ -52,11 +52,7 @@ int main(int ac, char **av,  char **env)
 		free(ptr);
 		ptr = NULL;
 	}
-	while (tokens[i])
-	{
-		free(tokens[i]);
-		i++;
-	}
+	free_array(tokens);
 	free(ptr);
 	ptr = NULL;
 	return (0);

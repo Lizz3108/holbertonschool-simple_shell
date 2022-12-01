@@ -4,7 +4,7 @@
  *
  * @tokens: Our array of tokens
  * @env: Our enviorment variables
- *
+ * @ptr: Command string (it comes from getline)
  * Return: Always return one
  *
  * Description: First our function will compare our token position 0
@@ -15,21 +15,14 @@ int comp_exec(char **tokens, char *ptr, char **env)
 {
 	unsigned int i = 0;
 	pid_t child_pid;
-	int j = 0, status;
+	int status;
 
-	/* Built-in process start here */
 	if (_strcmp(tokens[0], "exit") == 0)
 	{
-		while (tokens[i])
-		{
-			free(tokens[i]);
-			i++;
-		}
-		free(tokens);
+		free_array(tokens);
 		free(ptr);
 		exit(0);
 	}
-	i = 0;
 	if (_strcmp(tokens[0], "env") == 0)
 	{
 		while (env[i])
@@ -40,7 +33,6 @@ int comp_exec(char **tokens, char *ptr, char **env)
 		}
 		return (1);
 	}
-	/* Execution procress start here */
 	child_pid = fork();
 	if (child_pid == -1)
 		perror("Child process failed");
@@ -55,11 +47,6 @@ int comp_exec(char **tokens, char *ptr, char **env)
 	else
 	{
 		wait(&status);
-		while (tokens[j])
-		{
-			free(tokens[j]);
-			j++;
-		}
 		free(tokens);
 	}
 	return (1);
