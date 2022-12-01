@@ -1,9 +1,10 @@
 #include "simple_shell.h"
 /**
  * _strcmp - compare two strings
- * @s1: string one
- * @s2: string two
- * Return: return the value of strings
+ * @comparing: source string
+ * @compare: string to be compare againt source.
+ *
+ * Return: 0 if its equal, otherwise is not equal.
  */
 int _strcmp(char *comparing, char *compare)
 {
