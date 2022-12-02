@@ -47,7 +47,6 @@ int main(int ac, char **av,  char **env)
 
 		tokens = tokenization(ptr, " \n");
 		comp_exec(tokens, ptr, env);
-
 	}
 	return (0);
 }
