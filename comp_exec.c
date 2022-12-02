@@ -9,7 +9,7 @@
  *
  * Description: First our function will compare our token position 0
  * with the built-in (exit & env). If its not a built in he will check
-  for the command and print out the result of the execution.
+ * for the command and print out the result of the execution.
  */
 int comp_exec(char **tokens, char *ptr, char **env)
 {
