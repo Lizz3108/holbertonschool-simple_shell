@@ -48,13 +48,6 @@ int main(int ac, char **av,  char **env)
 		tokens = tokenization(ptr, " \n");
 		comp_exec(tokens, ptr, env);
 
-		n = 0;
-		free(ptr);
-		ptr = NULL;
 	}
-	free_array(tokens);
-	tokens = NULL;
-	free(ptr);
-	ptr = NULL;
 	return (0);
 }
