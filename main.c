@@ -36,7 +36,6 @@ int main(int ac, char **av,  char **env)
 		if (flag == EOF)
 		{
 			free(ptr);
-			/*write(1, "\n", 1);*/
 			exit(EXIT_SUCCESS);
 		}
 		if (ptr[0] == '\n')
@@ -52,7 +51,6 @@ int main(int ac, char **av,  char **env)
 		n = 0;
 		free(ptr);
 		ptr = NULL;
-		free_array(tokens);
 	}
 	free_array(tokens);
 	tokens = NULL;
