@@ -16,6 +16,9 @@ int comp_exec(char **tokens, char *ptr, char **env)
 	unsigned int i = 0;
 	pid_t child_pid;
 	int status;
+	char **path_tok;
+	struct stat rawr;
+	char *cmd;
 
 	if (_strcmp(tokens[0], "exit") == 0)
 	{
@@ -32,6 +35,28 @@ int comp_exec(char **tokens, char *ptr, char **env)
 			i++;
 		}
 		return (1);
+	}
+	i = 0;
+	path_tok = path(env);
+	while (path_tok[i])
+	{
+		if (strstr(tokens[0], path_tok[i]) != NULL)
+			break;
+		i++;
+	}
+	if (path_tok[i] == NULL)
+	{
+		i = 0;
+		while (path_tok[i])
+		{
+			cmd = _strcat(path_tok[i] ,tokens[0]);
+			if (stat(cmd, &rawr) == 0)
+			{
+				tokens[0] = cmd;
+				break;
+			}
+			i++;
+		}
 	}
 	child_pid = fork();
 	if (child_pid == -1)

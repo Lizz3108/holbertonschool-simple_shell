@@ -6,6 +6,7 @@
 #include <sys/types.h> /* Fork, Wait */
 #include <stdlib.h> /* Exit */
 #include <sys/wait.h> /* Wait */
+#include <sys/stat.h> /* Stat */
 
 char **tokenization(char *str, char *delim);
 int comp_exec(char **tokens, char *ptr, char **env);

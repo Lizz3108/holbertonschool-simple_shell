@@ -1,6 +1,6 @@
 #include "simple_shell.h"
 /**
- * _strcat - This funciont appendes the src to the dest string,
+ * _strcat - This function appendes the src to the dest string,
  * overwritingh the termination null byte at the end of dest,
  * and then adds a termination null byte.
  * @dest: original
@@ -10,12 +10,14 @@
 char *_strcat(char *dest, char *src)
 {
 	int move, original;
-
 	original = 0;
 	move = 0;
 
 	while (dest[original] != '\0')
 		original++;
+
+	dest[original] = '/';
+	original++;
 
 	while (src[move] != '\0')
 	{
