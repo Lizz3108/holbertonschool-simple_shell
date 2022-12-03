@@ -1,42 +1,23 @@
 #include "simple_shell.h"
 /**
- * comp_exec - function that compares our string and execute the command.
+ * execution - function that compares our string and execute the command.
  *
  * @tokens: Our array of tokens
  * @env: Our enviorment variables
- * @ptr: Command string (it comes from getline)
+ *
  * Return: Always return one
  *
  * Description: First our function will compare our token position 0
  * with the built-in (exit & env). If its not a built in he will check
  * for the command and print out the result of the execution.
  */
-int comp_exec(char **tokens, char *ptr, char **env)
+int execution(char **tokens,  char **env)
 {
-	unsigned int i = 0;
+	int i = 0, status;
 	pid_t child_pid;
-	int status;
-	char **path_tok;
+	char **path_tok, *cmd;
 	struct stat rawr;
-	char *cmd;
 
-	if (_strcmp(tokens[0], "exit") == 0)
-	{
-		free_array(tokens);
-		free(ptr);
-		exit(0);
-	}
-	if (_strcmp(tokens[0], "env") == 0)
-	{
-		while (env[i])
-		{
-			write(1, env[i], _strlen(env[i]));
-			write(1, "\n", 1);
-			i++;
-		}
-		return (1);
-	}
-	i = 0;
 	path_tok = path(env);
 	while (path_tok[i])
 	{
@@ -46,16 +27,14 @@ int comp_exec(char **tokens, char *ptr, char **env)
 	}
 	if (path_tok[i] == NULL)
 	{
-		i = 0;
-		while (path_tok[i])
+		for (i = 0; path_tok[i]; i++)
 		{
-			cmd = _strcat(path_tok[i] ,tokens[0]);
+			cmd = _strcat(path_tok[i], tokens[0]);
 			if (stat(cmd, &rawr) == 0)
 			{
 				tokens[0] = cmd;
 				break;
 			}
-			i++;
 		}
 	}
 	child_pid = fork();
@@ -66,6 +45,9 @@ int comp_exec(char **tokens, char *ptr, char **env)
 		if (execve(tokens[0], tokens, env) == -1)
 		{
 			perror("./hsh");
+			free(cmd);
+			free_array(path_tok);
+			free_array(tokens);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -73,6 +55,7 @@ int comp_exec(char **tokens, char *ptr, char **env)
 	{
 		wait(&status);
 		free_array(tokens);
+		tokens = NULL;
 	}
 	return (1);
 }

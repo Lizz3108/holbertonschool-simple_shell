@@ -9,7 +9,7 @@
 #include <sys/stat.h> /* Stat */
 
 char **tokenization(char *str, char *delim);
-int comp_exec(char **tokens, char *ptr, char **env);
+int execution(char **tokens, char **env);
 char **path(char **env);
 
 /* Auxiliar Functions*/

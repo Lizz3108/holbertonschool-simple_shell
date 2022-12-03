@@ -20,8 +20,8 @@ char **tokenization(char *ptr, char *delim)
 	int i = 0;
 
 	tokens = malloc(sizeof(char *) * _strlen(ptr));
-
 	token = strtok(ptr, delim);
+
 	while (token)
 	{
 		tokens[i] = malloc(sizeof(char) * _strlen(token) + 1);
@@ -30,6 +30,8 @@ char **tokenization(char *ptr, char *delim)
 		token = NULL;
 		token = strtok(NULL, delim);
 	}
+
 	tokens[i] = NULL;
+
 	return (tokens);
 }
