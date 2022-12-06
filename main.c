@@ -34,7 +34,7 @@ int main(int ac, char **av,  char **env)
 			free(ptr);
 			exit(EXIT_SUCCESS);
 		}
-		if (ptr[0] == '\n')
+		if (ptr[0] == '\n' || ptr[0] == ' ')
 		{
 			free(ptr);
 			ptr = NULL;
