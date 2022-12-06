@@ -31,7 +31,8 @@ int execution(char **tokens,  char **env)
 		}
 		path_tok = path(env);
 		tokens[0] = add_path(tokens, path_tok);
-		execve(tokens[0], tokens, env);
+		if (tokens[0] != NULL || tokens != NULL)
+			execve(tokens[0], tokens, env);
 	}
 	else
 		wait(&status);
