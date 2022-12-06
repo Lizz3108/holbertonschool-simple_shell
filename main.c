@@ -44,6 +44,7 @@ int main(int ac, char **av,  char **env)
 		if (_strcmp(tokens[0], "exit") == 0)
 		{
 			free(ptr);
+			free_array(tokens);
 			exit(0);
 		}
 		if (_strcmp(tokens[0], "env") == 0)
@@ -56,7 +57,6 @@ int main(int ac, char **av,  char **env)
 		}
 		execution(tokens, env);
 		free(ptr);
-		n = 0;
 		ptr = NULL;
 		tokens = NULL;
 	}

@@ -13,44 +13,28 @@
  */
 int execution(char **tokens,  char **env)
 {
-	int i, status;
+	int status;
 	pid_t child_pid;
-	char **path_tok, *cmd;
+	char **path_tok;
 	struct stat rawr;
 
-	path_tok = path(env);
-	for (i = 0; path_tok[i]; i++)
-	{
-		if (strstr(tokens[0], path_tok[i]) != NULL)
-			break;
-	}
-	if (path_tok[i] == NULL)
-	{
-		for (i = 0; path_tok[i]; i++)
-		{
-			cmd = _strcat(path_tok[i], tokens[0]);
-			if (stat(cmd, &rawr) == 0)
-			{
-				tokens[0] = cmd;
-				break;
-			}
-		}
-	}
 	child_pid = fork();
 	if (child_pid == -1)
 		perror("Child process failed");
 	else if (child_pid == 0)
 	{
-		if (execve(tokens[0], tokens, env) == -1)
+		if (stat(tokens[0], &rawr) == 0)
 		{
-			perror("./hsh");
-			free(cmd);
-			free_array(tokens);
-			exit(EXIT_FAILURE);
+			if (execve(tokens[0], tokens, env) == -1)
+				perror("./hsh");
+				/* Handle error insert here shawty */
 		}
+		path_tok = path(env);
+		tokens[0] = add_path(tokens, path_tok);
+		execve(tokens[0], tokens, env);
 	}
 	else
 		wait(&status);
-	free_array(path_tok);
+	free_array(tokens);
 	return (1);
 }
