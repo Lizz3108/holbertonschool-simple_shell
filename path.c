@@ -25,5 +25,3 @@ char **path(char **env)
 	path_tok = tokenization(path, ":");
 	return (path_tok);
 }
-
-
