@@ -21,7 +21,7 @@ int main(int ac, char **av,  char **env)
 {
 	char *ptr = NULL, **tokens = NULL;
 	size_t n = 0;
-	int i;
+	int i, j = 0;
 
 	(void) ac;
 	(void) av;
@@ -34,12 +34,14 @@ int main(int ac, char **av,  char **env)
 			free(ptr);
 			exit(EXIT_SUCCESS);
 		}
-		if (ptr[0] == '\n' || ptr[0] == ' ')
+		if (ptr[0] == '\n')
 		{
 			free(ptr);
 			ptr = NULL;
 			continue;
 		}
+		while (ptr[j] == ' ')
+			j++;
 		tokens = tokenization(ptr, " \n");
 		if (_strcmp(tokens[0], "exit") == 0)
 		{
