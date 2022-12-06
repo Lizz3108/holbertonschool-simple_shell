@@ -43,7 +43,6 @@ int main(int ac, char **av,  char **env)
 		tokens = tokenization(ptr, " \n");
 		if (_strcmp(tokens[0], "exit") == 0)
 		{
-			free_array(tokens);
 			free(ptr);
 			exit(0);
 		}
@@ -56,7 +55,6 @@ int main(int ac, char **av,  char **env)
 			}
 		}
 		execution(tokens, env);
-
 		free(ptr);
 		n = 0;
 		ptr = NULL;

@@ -13,17 +13,16 @@
  */
 int execution(char **tokens,  char **env)
 {
-	int i = 0, status;
+	int i, status;
 	pid_t child_pid;
 	char **path_tok, *cmd;
 	struct stat rawr;
 
 	path_tok = path(env);
-	while (path_tok[i])
+	for (i = 0; path_tok[i]; i++)
 	{
 		if (strstr(tokens[0], path_tok[i]) != NULL)
 			break;
-		i++;
 	}
 	if (path_tok[i] == NULL)
 	{
@@ -46,16 +45,12 @@ int execution(char **tokens,  char **env)
 		{
 			perror("./hsh");
 			free(cmd);
-			free_array(path_tok);
 			free_array(tokens);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
-	{
 		wait(&status);
-		free_array(tokens);
-		tokens = NULL;
-	}
+	free_array(path_tok);
 	return (1);
 }

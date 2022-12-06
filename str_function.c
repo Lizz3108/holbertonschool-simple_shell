@@ -80,10 +80,8 @@ int _strlen(char *s)
 
 #include "simple_shell.h"
 /**
- * _strdup - Duplicates a given string
- *
+ * strduplicate - Duplicates a given string
  * @s: given string
- *
  * Return: Copy of given string
 */
 char *_strdup(char *s)
@@ -108,4 +106,3 @@ char *_strdup(char *s)
 
 	return (ptr);
 }
-

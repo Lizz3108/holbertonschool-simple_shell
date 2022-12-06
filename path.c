@@ -19,12 +19,10 @@ char **path(char **env)
 			copy_path = tokenization(path, "=");
 			free(path);
 			path = _strdup(copy_path[1]);
-			free_array(copy_path);
 		}
 		i++;
 	}
 	path_tok = tokenization(path, ":");
-	free(path);
 	return (path_tok);
 }
 
