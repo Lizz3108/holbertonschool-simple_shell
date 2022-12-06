@@ -21,19 +21,15 @@ int main(int ac, char **av,  char **env)
 {
 	char *ptr = NULL, **tokens = NULL;
 	size_t n = 0;
-	int flag;
+	int i;
 
 	(void) ac;
 	(void) av;
-
 	while (1)
 	{
 		if (isatty(0))
 			write(1, "$ ", 2);
-
-		flag = getline(&ptr, &n, stdin);
-
-		if (flag == EOF)
+		if (getline(&ptr, &n, stdin) == EOF)
 		{
 			free(ptr);
 			exit(EXIT_SUCCESS);
@@ -44,9 +40,29 @@ int main(int ac, char **av,  char **env)
 			ptr = NULL;
 			continue;
 		}
-
 		tokens = tokenization(ptr, " \n");
-		comp_exec(tokens, ptr, env);
+		if (_strcmp(tokens[0], "exit") == 0)
+		{
+			free(ptr);
+			exit(0);
+		}
+		if (_strcmp(tokens[0], "env") == 0)
+		{
+			for (i = 0; env[i]; i++)
+			{
+				write(1, env[i], _strlen(env[i]));
+				write(1, "\n", 1);
+			}
+		}
+		execution(tokens, env);
+		free(ptr);
+		n = 0;
+		ptr = NULL;
+		tokens = NULL;
 	}
+	free_array(tokens);
+	tokens = NULL;
+	free(ptr);
+	ptr = NULL;
 	return (0);
 }
