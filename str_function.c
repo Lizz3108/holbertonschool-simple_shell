@@ -80,7 +80,7 @@ int _strlen(char *s)
 
 #include "simple_shell.h"
 /**
- * strduplicate - Duplicates a given string
+ * _strdup - Duplicates a given string
  * @s: given string
  * Return: Copy of given string
 */
