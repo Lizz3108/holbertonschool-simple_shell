@@ -54,6 +54,8 @@ int main(int ac, char **av,  char **env)
 					write(1, env[i], _strlen(env[i]));
 					write(1, "\n", 1);
 				}
+				free_array(tokens);
+				continue;
 			}
 			if (_strcmp(tokens[0], "exit") == 0)
 			{
