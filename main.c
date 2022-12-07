@@ -35,6 +35,7 @@ int main(int ac, char **av,  char **env)
 			exit(EXIT_SUCCESS);
 		}
 		tokens = tokenization(ptr, " \n");
+		ptr = NULL;
 		if (tokens[0] != NULL)
 		{
 			if (_strcmp(tokens[0], "exit") == 0)
