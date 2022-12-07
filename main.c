@@ -34,33 +34,28 @@ int main(int ac, char **av,  char **env)
 			free(ptr);
 			exit(EXIT_SUCCESS);
 		}
-		/*while (ptr[j] == ' ')
-			j++;
-		if (ptr[0] == '\n' || ptr[0] == ' ')
+		tokens = tokenization(ptr, " \n");
+		if (tokens[0] != NULL)
 		{
+			if (_strcmp(tokens[0], "exit") == 0)
+			{
+				free(ptr);
+				free_array(tokens);
+				exit(0);
+			}
+			if (_strcmp(tokens[0], "env") == 0)
+			{
+				for (i = 0; env[i]; i++)
+				{
+					write(1, env[i], _strlen(env[i]));
+					write(1, "\n", 1);
+				}
+			}
+			execution(tokens, env);
 			free(ptr);
 			ptr = NULL;
-			continue;
-		}*/
-		tokens = tokenization(ptr, " \n");
-		if (_strcmp(tokens[0], "exit") == 0)
-		{
-			free(ptr);
-			free_array(tokens);
-			exit(0);
+			tokens = NULL;
 		}
-		if (_strcmp(tokens[0], "env") == 0)
-		{
-			for (i = 0; env[i]; i++)
-			{
-				write(1, env[i], _strlen(env[i]));
-				write(1, "\n", 1);
-			}
-		}
-		execution(tokens, env);
-		free(ptr);
-		ptr = NULL;
-		tokens = NULL;
 	}
 	free_array(tokens);
 	tokens = NULL;
