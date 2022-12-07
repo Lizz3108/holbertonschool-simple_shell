@@ -27,6 +27,9 @@ int main(int ac, char **av,  char **env)
 	(void) av;
 	while (1)
 	{
+		ptr = NULL;
+		tokens = NULL;
+		n = 0;
 		if (isatty(0))
 			write(1, "$ ", 2);
 		if (getline(&ptr, &n, stdin) == EOF)
@@ -35,29 +38,27 @@ int main(int ac, char **av,  char **env)
 			exit(EXIT_SUCCESS);
 		}
 		tokens = tokenization(ptr, " \n");
-		if (tokens[0] == NULL)
+		free(ptr);
+		if (tokens[0] != NULL)
 		{
-			free(ptr);
-			free(tokens);
-			ptr = NULL;
-			tokens = NULL;
-			continue;
-		}
-		if (_strcmp(tokens[0], "exit") == 0)
-		{
-			free(ptr);
-			free_array(tokens);
-			exit(0);
-		}
-		if (_strcmp(tokens[0], "env") == 0)
-		{
-			for (i = 0; env[i]; i++)
+			if (_strcmp(tokens[0], "exit") == 0)
 			{
-				write(1, env[i], _strlen(env[i]));
-				write(1, "\n", 1);
+				free(ptr);
+				free_array(tokens);
+				exit(0);
 			}
+			if (_strcmp(tokens[0], "env") == 0)
+			{
+				for (i = 0; env[i]; i++)
+				{
+					write(1, env[i], _strlen(env[i]));
+					write(1, "\n", 1);
+				}
+			}
+			execution(tokens, env);
 		}
-		execution(tokens, env);
+		else
+			free(tokens);
 	}
 	free_array(tokens);
 	tokens = NULL;
