@@ -61,8 +61,6 @@ int main(int ac, char **av,  char **env)
 			free(tokens);
 	}
 	free_array(tokens);
-	tokens = NULL;
 	free(ptr);
-	ptr = NULL;
 	return (0);
 }
