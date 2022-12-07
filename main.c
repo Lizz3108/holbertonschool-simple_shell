@@ -52,10 +52,10 @@ int main(int ac, char **av,  char **env)
 				}
 			}
 			execution(tokens, env);
-			free(ptr);
-			ptr = NULL;
-			tokens = NULL;
 		}
+		free(ptr);
+		ptr = NULL;
+		tokens = NULL;
 	}
 	free_array(tokens);
 	tokens = NULL;
