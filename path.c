@@ -22,5 +22,6 @@ char *path(char **env)
 		}
 		i++;
 	}
+	free_array(copy_path);
 	return (path);
 }

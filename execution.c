@@ -13,7 +13,7 @@
  */
 int execution(char **tokens,  char **env)
 {
-	int status, i;
+	int status;
 	pid_t child_pid;
 	char *path_tok, **cmd;
 	struct stat buffer;
@@ -22,17 +22,16 @@ int execution(char **tokens,  char **env)
 	{
 		path_tok = path(env);
 		cmd = tokenization(path_tok, ":");
-		for (i = 0; cmd[i] != NULL; i++)
-			printf("%s\n", cmd[i]);
+		free(path_tok);
 		tokens[0] = add_path(tokens, cmd);
 		if (stat(tokens[0], &buffer) != 0)
 		{
+			free_array(cmd);
 			free_array(tokens);
 			perror("cmd not found");
 			return (0);
 		}
 	}
-
 	child_pid = fork();
 	if (child_pid == -1)
 		perror("Child process failed");
