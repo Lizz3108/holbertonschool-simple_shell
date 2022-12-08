@@ -19,7 +19,7 @@ char **tokenization(char *ptr, char *delim)
 	char *token = NULL, **tokens = NULL;
 	int i = 0;
 
-	tokens = malloc(sizeof(char *) * 1);
+	tokens = malloc(sizeof(char *) * 10);
 	token = strtok(ptr, delim);
 
 	while (token)

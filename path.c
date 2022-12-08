@@ -6,14 +6,14 @@
  *
  * Return: a string that contains enviorments, or NULL if failes
  */
-char **path(char **env)
+char *path(char **env)
 {
 	int i = 0;
-	char *path, **path_tok, **copy_path;
+	char *path,  **copy_path;
 
 	while (env[i])
 	{
-		if (_strncmp(env[i], "PATH=", 5) == 0)
+		if (_strncmp(env[i], "PATH", 4) == 0)
 		{
 			path = _strdup(env[i]);
 			copy_path = tokenization(path, "=");
@@ -22,6 +22,5 @@ char **path(char **env)
 		}
 		i++;
 	}
-	path_tok = tokenization(path, ":");
-	return (path_tok);
+	return (path);
 }
