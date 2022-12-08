@@ -14,7 +14,7 @@ Releade date December 9, 2022.
     - Flowchart
 4. Authors
     
-Introduction (Question from task)
+## Introduction (Question from task)
 - What is Shell?
   Shell is an enviorment in which we can run our commands, programs and shell scripts.
 
@@ -34,46 +34,51 @@ Introduction (Question from task)
 
 ### Tasks
 
-    Task 0 - Write a README, Write a man for your shell & AUTHOR file.
+   Task 0 - Write a README, Write a man for your shell & AUTHOR file.
 
-    Task 1 - Write a beautiful code that passed the Betty checks
+   Task 1 - Write a beautiful code that passed the Betty checks
 
-    Task 2
+   Task 2
      Write a UNIX command line interpreter.
 
-    Usage: simple_shell
+   Usage: simple_shell
 
 Your Shell should:
 
-    Display a prompt and wait for the user to type a command. A command line always ends with a new line.
-    The prompt is displayed again each time a command has been executed.
-    The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
-    The command lines are made only of one word. No arguments will be passed to programs.
-    If an executable cannot be found, print an error message and display the prompt again.
-    Handle errors.
-    You have to handle the “end of file” condition (Ctrl+D)
+   Display a prompt and wait for the user to type a command. A command line always ends with a new line.
+   The prompt is displayed again each time a command has been executed.
+   The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
+   The command lines are made only of one word. No arguments will be passed to programs.
+   If an executable cannot be found, print an error message and display the prompt again.
+   Handle errors.
+   You have to handle the “end of file” condition (Ctrl+D)
 
 You don’t have to:
 
-    use the PATH
-    implement built-ins
-    handle special characters : ", ', `, \, *, &, #
-    be able to move the cursor
-    handle commands with arguments
+   use the PATH
+   implement built-ins
+   handle special characters
+   be able to move the cursor
+   handle commands with arguments
 
-    Task 3 - Handle command lines with arguments
+   Task 3 - Handle command lines with arguments
 
-    Task 4 - Handle the PATH, fork must not be called if the command doesnt exist
+   Task 4 - Handle the PATH, fork must not be called if the command doesnt exist
 
-    Task 5 - Implement the exit built-in, that exits the shell
+   Task 5 - Implement the exit built-in, that exits the shell
 
-    Task 6 - Implement the env built-in, that prints the current enviorment
+   Task 6 - Implement the env built-in, that prints the current enviorment
 
 
 ### General requirements
 
-    Allowed editors:
-    All our files were compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
+   Allowed editors:
+   ![Vim](https://img.shields.io/badge/VIM-%2311AB00.svg?style=for-the-badge&logo=vim&logoColor=white)
+   ![Emacs](https://img.shields.io/badge/Emacs-%237F5AB6.svg?&style=for-the-badge&logo=gnu-emacs&logoColor=white)
+   
+   All our files were compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
+   
+   Language: ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 
 ### Allowed functions & system calls
 
