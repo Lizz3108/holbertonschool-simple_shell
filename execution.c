@@ -18,26 +18,26 @@ int execution(char **tokens,  char **env)
 	char **path_tok;
 	struct stat rawr;
 
-	if (stat(tokens[0], &rawr) == 0)
+	child_pid = fork();
+	if (child_pid == -1)
+		perror("Child process failed");
+	else if (child_pid == 0)
 	{
-		child_pid = fork();
-		if (child_pid == -1)
-			perror("Child process failed");
-		else if (child_pid == 0)
+		if (stat(tokens[0], &rawr) == 0)
 		{
 			if (execve(tokens[0], tokens, env) == -1)
 				perror("./hsh");
 			/* Handle error insert here shawty */
-			path_tok = path(env);
-			tokens[0] = add_path(tokens, path_tok);
-			if (tokens[0] != NULL || tokens != NULL)
-				execve(tokens[0], tokens, env);
 		}
 		else
-			wait(&status);
-		free_array(tokens);
+			perror("dumb");
+		path_tok = path(env);
+		tokens[0] = add_path(tokens, path_tok);
+		if (tokens[0] != NULL || tokens != NULL)
+			execve(tokens[0], tokens, env);
 	}
 	else
-		perror("bitch wrong command");
+		wait(&status);
+	free_array(tokens);
 	return (1);
 }

@@ -37,12 +37,6 @@ int main(int ac, char **av,  char **env)
 			free(ptr);
 			exit(EXIT_SUCCESS);
 		}
-		if (ptr[0] == '\n')
-		{
-			free(ptr);
-			ptr = NULL;
-			continue;
-		}
 		tokens = tokenization(ptr, " \n");
 		free(ptr);
 		if (tokens[0] != NULL)
@@ -66,6 +60,7 @@ int main(int ac, char **av,  char **env)
 		}
 		else
 			free(tokens);
+		tokens = NULL;
 	}
 	free_array(tokens);
 	free(ptr);
