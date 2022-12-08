@@ -10,7 +10,7 @@
 
 char **tokenization(char *str, char *delim);
 int execution(char **tokens, char **env);
-char **path(char **env);
+char *path(char **env);
 char *add_path(char **tokens, char **path_tok);
 
 /* Auxiliar Functions*/
