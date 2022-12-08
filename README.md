@@ -41,11 +41,11 @@ Releade date December 9, 2022.
 
 ### 🎯 Tasks
 
-   Task 0 - Write a README, Write a man for your shell & AUTHOR file.
+  * Task 0 - Write a README, Write a man for your shell & AUTHOR file.
 
-   Task 1 - Write a beautiful code that passed the Betty checks
+  * Task 1 - Write a beautiful code that passed the Betty checks
 
-   Task 2
+  * Task 2
      Write a UNIX command line interpreter.
 
    Usage: simple_shell
@@ -68,13 +68,13 @@ You don’t have to:
    be able to move the cursor
    handle commands with arguments
 
-   Task 3 - Handle command lines with arguments
+  * Task 3 - Handle command lines with arguments
 
-   Task 4 - Handle the PATH, fork must not be called if the command doesnt exist
+  * Task 4 - Handle the PATH, fork must not be called if the command doesnt exist
 
-   Task 5 - Implement the exit built-in, that exits the shell
+  * Task 5 - Implement the exit built-in, that exits the shell
 
-   Task 6 - Implement the env built-in, that prints the current enviorment
+  * Task 6 - Implement the env built-in, that prints the current enviorment
 
 
 ### ⚒ General requirements
