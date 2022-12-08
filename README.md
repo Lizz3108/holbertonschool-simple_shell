@@ -5,6 +5,14 @@ Releade date December 9, 2022.
 1. Introduction
 2. Prokect Information
     - Task
+    - General Requirements
+    - Allowed functions & system calls
+3. Documentation
+    - Instalation
+    - Usage
+    - Files Description
+    - Flowchart
+4. Authors
     
 Introduction (Question from task)
 - What is Shell?
