@@ -17,18 +17,16 @@
  * Afterwards we tokenize the command, then we check if its a built-in,
  * otherwise we execute the commmand, and then free for next use.
  */
-int main(int ac, char **av,  char **env)
+int main(int ac __attribute__((unused)), char **av __attribute__((unused)),  char **env)
 {
 	char *ptr = NULL, **tokens = NULL;
 	size_t n = 0;
 	int i;
 
-	(void) ac;
-	(void) av;
 	while (1)
 	{
-		ptr = NULL;
 		tokens = NULL;
+		ptr = NULL;
 		n = 0;
 		if (isatty(0))
 			write(1, "$ ", 2);
@@ -60,7 +58,6 @@ int main(int ac, char **av,  char **env)
 		}
 		else
 			free(tokens);
-		tokens = NULL;
 	}
 	free_array(tokens);
 	free(ptr);
