@@ -14,7 +14,7 @@ Releade date December 9, 2022.
     - Flowchart
 4. Authors
     
-## 📜 Introduction (Question from task)
+## 📜 Introduction
 - What is Shell?
 
   Shell is an enviorment in which we can run our commands, programs and shell scripts.
@@ -34,6 +34,8 @@ Releade date December 9, 2022.
 - How to suspend the execution of a process until one of its children terminates?
 
   We can suspend the execution of a process until one of its children terminates using the wait function. A call to wait() blocks the calling process until one of its child processes exits or a signal is received. After child process terminates, parent continues its execution after wait system call instruction.
+  
+- What is `EOF`/ "end-of-file"?
 
 ## 📢 Project Information
 
