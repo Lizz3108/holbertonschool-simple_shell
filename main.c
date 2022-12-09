@@ -14,7 +14,7 @@
  * checked to see if they press the Ctrl-d command. If of the program will
  * print a new line and exit. Otherwise it will checke it the input is a new
  * line (the user just pressed enter), if so she will print the prompt.
- * Afterwards we tokenize the command, ten we check if its a built-in
+ * Afterwards we tokenize the command, then we check if its a built-in
  * otherwise we execute the commmand, and then free for next use.
  */
 int main(int ac __attribute__((unused)), char **av,  char **env)
