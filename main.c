@@ -62,7 +62,7 @@ int main(int ac __attribute__((unused)), char **av,  char **env)
 /**
  * die - function that will check if tokens 0 is the word exit
  *
- * @tokens - array of tokens that we will checked only the first token
+ * @tokens: array of tokens that we will checked only the first token
  *
  * Return: 1, if the word is not exit, or 0 if it exit
  */
