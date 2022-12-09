@@ -14,20 +14,18 @@
  * checked to see if they press the Ctrl-d command. If of the program will
  * print a new line and exit. Otherwise it will checke it the input is a new
  * line (the user just pressed enter), if so she will print the prompt.
- * Afterwards we tokenize the command, then we check if its a built-in,
+ * Afterwards we tokenize the command, ten we check if its a built-in
  * otherwise we execute the commmand, and then free for next use.
  */
-int main(int ac __attribute__((unused)), char **av __attribute__((unused)),  char **env)
+int main(int ac __attribute__((unused)), char **av,  char **env)
 {
 	char *ptr = NULL, **tokens = NULL;
 	size_t n = 0;
-	int i;
-
+	int i, flag;
+	(void)av;
 	while (1)
 	{
-		tokens = NULL;
-		ptr = NULL;
-		n = 0;
+		tokens = NULL, ptr = NULL, n = 0;
 		if (isatty(0))
 			write(1, "$ ", 2);
 		if (getline(&ptr, &n, stdin) == EOF)
@@ -49,12 +47,9 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)),  cha
 				free_array(tokens);
 				continue;
 			}
-			if (_strcmp(tokens[0], "exit") == 0)
-			{
-				free_array(tokens);
-				exit(0);
-			}
-			execution(tokens, env);
+			flag = die(tokens);
+			if (flag == 1)
+				execution(tokens, env);
 		}
 		else
 			free(tokens);
@@ -62,4 +57,14 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)),  cha
 	free_array(tokens);
 	free(ptr);
 	return (0);
+}
+
+int die(char **tokens)
+{
+	if (_strcmp(tokens[0], "exit") == 0)
+	{
+		free_array(tokens);
+		exit(0);
+	}
+	return (1);
 }
