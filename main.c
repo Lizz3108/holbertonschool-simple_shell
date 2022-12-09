@@ -25,7 +25,9 @@ int main(int ac __attribute__((unused)), char **av,  char **env)
 	(void)av;
 	while (1)
 	{
-		tokens = NULL, ptr = NULL, n = 0;
+		tokens = NULL;
+		ptr = NULL;
+		n = 0;
 		if (isatty(0))
 			write(1, "$ ", 2);
 		if (getline(&ptr, &n, stdin) == EOF)
