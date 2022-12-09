@@ -16,10 +16,6 @@ Releade date December 9, 2022.
 
   Shell is an enviorment in which we can run our commands, programs and shell scripts.
 
-- What is a pid and a ppid?
-
-  PID (Process Id) & PPID (Process PW) are two important Linux system identifiers. PID is the process id, and PPID is the process pointer. When a process start up, it assigns a PID to itself.
-
 - What is the difference between a function & a system call?
 
   The main difference between system call and function call is that a system call is a reques for the kernel to access a resource while a function call is a request made by a program to perform a specific task. System call s are used when a program needs to communicate wirh the kernel while function call are to call a specific functio within the program.
@@ -31,8 +27,6 @@ Releade date December 9, 2022.
 - How to suspend the execution of a process until one of its children terminates?
 
   We can suspend the execution of a process until one of its children terminates using the wait function. A call to wait() blocks the calling process until one of its child processes exits or a signal is received. After child process terminates, parent continues its execution after wait system call instruction.
-  
-- What is `EOF`/ "end-of-file"?
 
 ## 📢 Project Information
 
