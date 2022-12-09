@@ -8,10 +8,7 @@ Releade date December 9, 2022.
     - General Requirements
     - Allowed functions & system calls
 3. Documentation
-    - Instalation
     - Usage
-    - Files Description
-    - Flowchart
 4. Authors
     
 ## 📜 Introduction
@@ -122,7 +119,6 @@ You don’t have to:
     - write (man 2 write)
 
 ## 🗃️ Documentation
-### 📥 Instalation
 
 ### 🕹️ Usage (Interactive & Non-Interactive, Built-In)
 
@@ -137,10 +133,6 @@ You don’t have to:
   Built-In
   
   A built-in is a command or functio that is part of the shell itself. The command is "built-in" to the shell program - no external program is necessary to run the command, and a new process does not need to be created.
-
-### 📂 Files (Table of content detailing every file and function)
-
-### 📊Flowchart
 
 ## 🖋️ Authors
 
