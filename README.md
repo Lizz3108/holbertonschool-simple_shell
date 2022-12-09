@@ -18,11 +18,11 @@ Releade date December 9, 2022.
 
 - What is the difference between a function & a system call?
 
-  The main difference between system call and function call is that a system call is a reques for the kernel to access a resource while a function call is a request made by a program to perform a specific task. System call s are used when a program needs to communicate wirh the kernel while function call are to call a specific functio within the program.
+  The main difference between system call and function call is that a system call is a request for the kernel to access a resource while a function call is a request made by a program to perform a specific task. System call are used when a program needs to communicate with the kernel while function call are to call a specific function within the program.
 
 - How does the shell use the PATH to find the programs?
 
-  The PATH variable is basicaly a list of firectories your computer looks through to fing a requested executable.
+  The PATH variable is basically a list of directories your computer looks through to fing a requested executable.
 
 - How to suspend the execution of a process until one of its children terminates?
 
@@ -114,7 +114,7 @@ You don’t have to:
 
 ## 🗃️ Documentation
 
-### 🕹️ Usage (Interactive & Non-Interactive, Built-In)
+### 🕹️ Usage
 
   Interactive
   
@@ -122,11 +122,11 @@ You don’t have to:
 
   Non-Interactive
   
-  As the name inplies, a non-interactive shell is a type of shell that doesnt interact with the user. We can run it through a script or similat. Also, it can be run through some automated process. The non-interactive shell influence the PATH variables. It is higly recommended to use the full path for a command in non-interactive shells. Non-interactive scripts can smoothly run in the background easily.
+  As the name inplies, a non-interactive shell is a type of shell that doesn't interact with the user. We can run it through a script. Also, it can be run through some automated process. The non-interactive shell influence the PATH variables. It is higly recommended to use the full path for a command in non-interactive shells. Non-interactive scripts can smoothly run in the background easily.
 
   Built-In
   
-  A built-in is a command or functio that is part of the shell itself. The command is "built-in" to the shell program - no external program is necessary to run the command, and a new process does not need to be created.
+  A built-in is a command or function that is part of the shell itself. The command is "built-in" to the shell program - no external program is necessary to run the command, and a new process does not need to be created.
 
 ## 🖋️ Authors
 
