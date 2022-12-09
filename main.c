@@ -21,7 +21,8 @@ int main(int ac __attribute__((unused)), char **av,  char **env)
 {
 	char *ptr = NULL, **tokens = NULL;
 	size_t n = 0;
-	int i, flag;
+	int i;
+
 	(void)av;
 	while (1)
 	{
@@ -49,8 +50,7 @@ int main(int ac __attribute__((unused)), char **av,  char **env)
 				free_array(tokens);
 				continue;
 			}
-			flag = die(tokens);
-			if (flag == 1)
+			if (die(tokens) == 1)
 				execution(tokens, env);
 		}
 		else
