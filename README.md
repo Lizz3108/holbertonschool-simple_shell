@@ -130,5 +130,5 @@ You don’t have to:
 
 ## 🖋️ Authors
 
-![Lizbeth Garcia](https://github.com/Lizz3108)
+![Lizbeth Garcia](https://github.com/LizzGarleb)
 ![Yahdiel Saldana](https://github.com/yahdielo)
